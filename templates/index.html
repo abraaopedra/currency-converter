@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Converter</title>
+    <!-- Linking to external CSS file for styling -->
+    <link rel="stylesheet" type="text/css" href="..\static\style.css">
+</head>
+<body>
+    <!-- Main container for the application -->
+    <div class="container">
+        <!-- Title of the page -->
+        <h1>Currency Converter</h1>
+        <!-- Form to input amount and select currencies -->
+        <form>
+            <!-- Input field for amount -->
+            <input id="amount" type="text" name="amount" placeholder="Amount" required>
+            <!-- Dropdown to select "from" currency -->
+            <select id="from" name="from">
+                <option value="" selected disabled>From</option>
+                <!-- Loop to create an option for each currency -->
+                {% for cur in currencies %}
+                    <option value="{{ cur }}">{{ cur }}</option>
+                {% endfor %}
+            </select>
+            <!-- Dropdown to select "to" currency -->
+            <select id="to" name="to">
+                <option value="" selected disabled>To</option>
+                <!-- Loop to create an option for each currency -->
+                {% for cur in currencies %}
+                    <option value="{{ cur }}">{{ cur }}</option>
+                {% endfor %}
+            </select>
+            <!-- Submit button -->
+            <input type="submit" value="Convert">
+        </form>
+        <!-- Container to display conversion result or error message -->
+        <h2 id="result"></h2>
+    </div>
+    <!-- Linking to external JavaScript file for form submission handling -->
+    <script src="..\static\script.js"></script>
+</body>
+</html>
